@@ -199,29 +199,29 @@ const Footer = () => {
             >
               <h4 className="text-xl font-bold text-white border-b-2 border-green-600 pb-2 inline-block">Contact Info</h4>
               <div className="space-y-4 text-gray-300">
-                <motion.p whileHover={{ x: 5 }} className="flex items-center space-x-2">
-                  <span>📍</span>
-                  <span>Rangunia, Chittagong, Bangladesh</span>
+                <motion.p whileHover={{ x: 5 }} className="hover:text-white transition-colors duration-300">
+                  <span className="font-semibold text-gray-400">Location:</span><br />
+                  Rangunia, Chittagong, Bangladesh
                 </motion.p>
-                <motion.a 
+                <motion.a
                   href="mailto:adnanmahmud3394@gmail.com"
                   whileHover={{ x: 5 }}
-                  className="flex items-center space-x-2 hover:text-white transition-colors duration-300"
+                  className="block hover:text-white transition-colors duration-300"
                 >
-                  <span>✉️</span>
-                  <span>adnanmahmud3394@gmail.com</span>
+                  <span className="font-semibold text-gray-400">Email:</span><br />
+                  adnanmahmud3394@gmail.com
                 </motion.a>
-                <motion.a 
+                <motion.a
                   href="https://wa.me/8801820339433"
                   whileHover={{ x: 5 }}
-                  className="flex items-center space-x-2 hover:text-white transition-colors duration-300"
+                  className="block hover:text-white transition-colors duration-300"
                 >
-                  <span>📱</span>
-                  <span>+880 1820 339433</span>
+                  <span className="font-semibold text-gray-400">Phone:</span><br />
+                  +880 1820 339433
                 </motion.a>
-                <motion.p whileHover={{ x: 5 }} className="flex items-center space-x-2">
-                  <span>💼</span>
-                  <span>Available for new projects</span>
+                <motion.p whileHover={{ x: 5 }} className="hover:text-white transition-colors duration-300">
+                  <span className="font-semibold text-gray-400">Status:</span><br />
+                  Available for new projects
                 </motion.p>
               </div>
             </motion.div>

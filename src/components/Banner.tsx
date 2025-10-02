@@ -10,7 +10,7 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ title, description, image, imageAlt }) => {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 via-white to-red-50 relative overflow-hidden">
+    <section className="pt-24 pb-16 relative overflow-hidden" style={{ backgroundColor: '#FAEAB1' }}>
       {/* Background Animation */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -28,22 +28,12 @@ const Banner: React.FC<BannerProps> = ({ title, description, image, imageAlt }) 
               className="space-y-6"
             >
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900"
               >
-                {title.split(' ').map((word, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="inline-block mr-3 text-gray-900"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
+                {title}
               </motion.h1>
 
               <motion.p

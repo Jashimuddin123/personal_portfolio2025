@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Download, ArrowRight, Code, Sparkles, Star, ExternalLink, Eye } from 'lucide-react';
+import TestimonialSlider from '../components/TestimonialSlider';
 
 const Home = () => {
   const [displayText, setDisplayText] = useState('');
@@ -523,112 +524,141 @@ const Home = () => {
       </section>
 
       {/* What My Clients Say Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-72 h-72 bg-red-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What My Clients Say</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded"></div>
+            <motion.h2
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-gray-900 mb-4"
+            >
+              What My Clients Say
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '6rem' }}
+              transition={{ duration: 0.8 }}
+              className="h-1 bg-gradient-to-r from-blue-600 to-red-600 mx-auto rounded"
+            ></motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg text-gray-600 mt-4"
+            >
+              Real feedback from satisfied clients
+            </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-blue-600 text-sm">{testimonial.title}</p>
-                  </div>
-                </div>
-
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-
-                <p className="text-gray-600 leading-relaxed">
-                  "{testimonial.review}"
-                </p>
-              </motion.div>
-            ))}
+          <div className="max-w-7xl mx-auto px-4 lg:px-12">
+            <TestimonialSlider />
           </div>
         </div>
       </section>
 
       {/* My Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-blue-900 via-gray-800 to-red-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full opacity-10">
+            <div className="absolute top-20 left-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-72 h-72 bg-red-400 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-green-400 rounded-full blur-3xl animate-pulse"></div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">My Services</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded"></div>
+            <motion.h2
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-white mb-4"
+            >
+              My Services
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '6rem' }}
+              transition={{ duration: 0.8 }}
+              className="h-1 bg-gradient-to-r from-blue-400 to-red-400 mx-auto rounded"
+            ></motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg text-gray-300 mt-4 max-w-2xl mx-auto"
+            >
+              Professional web development services tailored to your business needs
+            </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 title: "Frontend Development",
                 description: "Modern React.js applications with beautiful UI",
                 icon: "💻",
-                link: "/services/frontend-development"
+                link: "/services/frontend-development",
+                color: "from-blue-500 to-cyan-500"
               },
               {
                 title: "Shopify Development",
                 description: "Custom Shopify stores and theme customization",
                 icon: "🛍️",
-                link: "/services/shopify-theme-customize"
+                link: "/services/shopify-theme-customize",
+                color: "from-green-500 to-emerald-500"
               },
               {
                 title: "E-commerce Solutions",
                 description: "Complete online store development and optimization",
                 icon: "🚀",
-                link: "/services/ecommerce-services"
+                link: "/services/ecommerce-services",
+                color: "from-red-500 to-orange-500"
               }
             ].map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                className="bg-gray-50 p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-300"
+                transition={{ duration: 0.8, delay: index * 0.15 }}
+                whileHover={{ y: -10 }}
+                className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40"
               >
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.6 }}
                   className="text-6xl mb-6"
                 >
                   {service.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
                 <Link
                   to={service.link}
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-red-600 transition-colors duration-300"
+                  className={`inline-flex items-center px-6 py-3 bg-gradient-to-r ${service.color} text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300`}
                 >
                   Learn More
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </motion.div>
             ))}
@@ -637,58 +667,97 @@ const Home = () => {
       </section>
 
       {/* Why Choose Me Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-300 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Me?</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded"></div>
+            <motion.h2
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-gray-900 mb-4"
+            >
+              Why Choose Me?
+            </motion.h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '6rem' }}
+              transition={{ duration: 0.8 }}
+              className="h-1 bg-gradient-to-r from-blue-600 to-red-600 mx-auto rounded"
+            ></motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed"
+            >
+              Dedicated to excellence with proven expertise and commitment to your success
+            </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {[
               {
                 title: "4+ Years Experience",
-                description: "Proven track record in web development",
-                icon: "🏆"
+                description: "Proven track record in web development with diverse projects",
+                icon: "🏆",
+                gradient: "from-blue-500 to-cyan-500"
               },
               {
                 title: "100% Client Satisfaction",
-                description: "Dedicated to delivering quality results",
-                icon: "⭐"
+                description: "Dedicated to delivering quality results that exceed expectations",
+                icon: "⭐",
+                gradient: "from-yellow-500 to-orange-500"
               },
               {
                 title: "Modern Technologies",
-                description: "Using latest tools and frameworks",
-                icon: "🚀"
+                description: "Using latest tools and frameworks for optimal performance",
+                icon: "🚀",
+                gradient: "from-red-500 to-pink-500"
               },
               {
                 title: "24/7 Support",
-                description: "Always available for your projects",
-                icon: "💬"
+                description: "Always available for your projects and quick to respond",
+                icon: "💬",
+                gradient: "from-green-500 to-emerald-500"
               }
             ].map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-gray-100 hover:border-transparent relative overflow-hidden"
               >
-                <motion.div 
+                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+
+                <motion.div
                   whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-4xl mb-4"
+                  transition={{ duration: 0.6 }}
+                  className="text-5xl mb-6 relative z-10"
                 >
                   {benefit.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-4 relative z-10 group-hover:text-blue-600 transition-colors duration-300">
+                  {benefit.title}
+                </h3>
+
+                <p className="text-gray-600 leading-relaxed relative z-10">
+                  {benefit.description}
+                </p>
+
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${benefit.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}></div>
               </motion.div>
             ))}
           </div>

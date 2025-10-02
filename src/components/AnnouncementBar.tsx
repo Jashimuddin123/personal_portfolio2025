@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, Facebook, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const AnnouncementBar = () => {
   const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 5000); // Hide after 5 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleCall = () => {
     window.open('tel:+8801820339433', '_self');
@@ -20,13 +13,12 @@ const AnnouncementBar = () => {
     window.open('mailto:adnanmahmud3394@gmail.com', '_self');
   };
 
-  if (!isVisible) return null;
-
   return (
-    <div 
-      className={`bg-black text-white py-2 px-4 text-sm transition-all duration-500 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-      }`}
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="bg-black text-white py-2 px-4 text-sm"
       style={{ position: 'relative', zIndex: 60 }}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -64,7 +56,7 @@ const AnnouncementBar = () => {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

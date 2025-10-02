@@ -216,6 +216,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Preserve specific transitions */
+.preserve-transition {
+  transition: all 0.3s ease;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
