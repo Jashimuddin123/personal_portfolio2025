@@ -22,8 +22,11 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <AnnouncementBar />
-        <Header />
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <AnnouncementBar />
+          <Header />
+        </div>
+        <div className="pt-28">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -39,6 +42,7 @@ function App() {
           <Route path="/request-quote" element={<RequestQuote />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        </div>
         <Footer />
         <ScrollToTop />
       </div>

@@ -139,7 +139,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden pt-20">
+      <section className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden">
         {/* Background Animations */}
         <div className="absolute inset-0 pointer-events-none">
           <motion.div 

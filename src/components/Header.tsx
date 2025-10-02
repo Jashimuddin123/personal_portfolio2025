@@ -25,12 +25,7 @@ const Header = () => {
   };
 
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-lg border-b border-gray-100"
-    >
+    <header className="w-full bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Attractive Logo */}
@@ -252,7 +247,7 @@ const Header = () => {
           )}
         </AnimatePresence>
       </nav>
-    </motion.header>
+    </header>
   );
 };
 
