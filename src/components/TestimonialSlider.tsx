@@ -65,11 +65,6 @@ const TestimonialSlider = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
-
   const getVisibleTestimonials = () => {
     const startIndex = currentIndex * itemsPerPage;
     return testimonials.slice(startIndex, startIndex + itemsPerPage);

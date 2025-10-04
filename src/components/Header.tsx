@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Download, Code, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Download, Code, Sparkles, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const serviceItems = [
     { path: '/services/landing-page', label: 'Landing Page' },
@@ -25,8 +27,12 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100">
-      <nav className="container mx-auto px-4 py-4">
+    <header className={`w-full backdrop-blur-md shadow-lg border-b transition-colors duration-300 ${
+      isDarkMode
+        ? 'bg-gray-900/95 border-gray-800'
+        : 'bg-white/95 border-gray-100'
+    }`}>
+      <nav className="container mx-auto px-4 py-4 max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Attractive Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
@@ -44,7 +50,9 @@ const Header = () => {
               >
                 Jashim Uddin
               </motion.span>
-              <span className="text-xs text-gray-500 -mt-1">Web Developer</span>
+              <span className={`text-xs -mt-1 transition-colors duration-300 ${
+                isDarkMode ? 'text-gray-400' : 'text-gray-500'
+              }`}>Web Developer</span>
             </div>
           </Link>
 
@@ -53,7 +61,7 @@ const Header = () => {
             <Link
               to="/"
               className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-blue-600 group ${
-                location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
+                location.pathname === '/' ? 'text-blue-600' : (isDarkMode ? 'text-gray-300' : 'text-gray-700')
               }`}
             >
               Home
@@ -156,6 +164,43 @@ const Header = () => {
               <Download className="w-4 h-4 mr-2" />
               Download CV
             </button>
+
+            {/* Theme Toggle Button */}
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                isDarkMode
+                  ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait">
+                {isDarkMode ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="w-5 h-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="w-5 h-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
           </div>
 
           {/* Connect Button */}

@@ -21,7 +21,7 @@ const AnnouncementBar = () => {
       className="bg-black text-white py-2 px-4 text-sm"
       style={{ position: 'relative', zIndex: 60 }}
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto px-4 max-w-7xl flex justify-between items-center">
         {/* Left Side - Contact Info */}
         <div className="flex items-center space-x-6">
           <button 

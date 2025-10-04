@@ -17,8 +17,7 @@ const Banner: React.FC<BannerProps> = ({ title, description, image, imageAlt }) 
         <div className="absolute top-20 right-20 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div
@@ -51,10 +50,10 @@ const Banner: React.FC<BannerProps> = ({ title, description, image, imageAlt }) 
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+                <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                   Get Started
                 </button>
-                <button className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+                <button className="bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg">
                   Learn More
                 </button>
               </motion.div>
@@ -100,7 +99,6 @@ const Banner: React.FC<BannerProps> = ({ title, description, image, imageAlt }) 
               ></motion.div>
             </motion.div>
           </div>
-        </div>
       </div>
     </section>
   );

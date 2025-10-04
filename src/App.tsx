@@ -17,11 +17,14 @@ import Portfolio from './pages/Portfolio';
 import Testimonials from './pages/Testimonials';
 import RequestQuote from './pages/RequestQuote';
 import Contact from './pages/Contact';
+import { useTheme } from './context/ThemeContext';
 
 function App() {
+  const { isDarkMode } = useTheme();
+
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
         <div className="fixed top-0 left-0 right-0 z-50">
           <AnnouncementBar />
           <Header />
