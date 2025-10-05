@@ -156,15 +156,6 @@ const Header = () => {
               }`}></span>
             </Link>
 
-            {/* Download CV Button */}
-            <button
-              onClick={downloadCV}
-              className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </button>
-
             {/* Theme Toggle Button */}
             <motion.button
               onClick={toggleTheme}
@@ -272,17 +263,10 @@ const Header = () => {
                   Request a Quote
                 </Link>
                 
-                <div className="flex space-x-2 px-4 pt-2">
-                  <button
-                    onClick={downloadCV}
-                    className="flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download CV
-                  </button>
+                <div className="px-4 pt-2">
                   <Link
                     to="/contact"
-                    className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-red-600 hover:to-orange-600 transition-all duration-300"
+                    className="block text-center bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-orange-600 transition-all duration-300"
                   >
                     Connect
                   </Link>

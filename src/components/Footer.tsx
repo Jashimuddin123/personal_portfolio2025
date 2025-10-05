@@ -54,19 +54,19 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { path: '/', label: 'Home', icon: <Home className="w-4 h-4" /> },
-    { path: '/about', label: 'About', icon: <User className="w-4 h-4" /> },
-    { path: '/services', label: 'Services', icon: <Briefcase className="w-4 h-4" /> },
-    { path: '/portfolio', label: 'Portfolio', icon: <Eye className="w-4 h-4" /> },
-    { path: '/testimonials', label: 'Testimonials', icon: <Star className="w-4 h-4" /> },
-    { path: '/request-quote', label: 'Request Quote', icon: <Quote className="w-4 h-4" /> }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/services', label: 'Services' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/testimonials', label: 'Testimonials' },
+    { path: '/request-quote', label: 'Request Quote' }
   ];
 
   const serviceLinks = [
-    { path: '/services/frontend-development', label: 'Frontend Development', icon: <Code className="w-4 h-4" /> },
-    { path: '/services/shopify-theme-customize', label: 'Shopify Development', icon: <ShoppingCart className="w-4 h-4" /> },
-    { path: '/services/landing-page', label: 'Landing Pages', icon: <Globe className="w-4 h-4" /> },
-    { path: '/services/ecommerce-services', label: 'E-commerce Solutions', icon: <Zap className="w-4 h-4" /> }
+    { path: '/services/frontend-development', label: 'Frontend Development' },
+    { path: '/services/shopify-theme-customize', label: 'Shopify Development' },
+    { path: '/services/landing-page', label: 'Landing Pages' },
+    { path: '/services/ecommerce-services', label: 'E-commerce Solutions' }
   ];
 
   return (
@@ -153,10 +153,9 @@ const Footer = () => {
                   >
                     <Link
                       to={link.path}
-                      className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
+                      className="block text-gray-400 hover:text-white transition-colors duration-300"
                     >
-                      <span className="group-hover:text-blue-400 transition-colors duration-300">{link.icon}</span>
-                      <span className="group-hover:text-white">{link.label}</span>
+                      {link.label}
                     </Link>
                   </motion.div>
                 ))}
@@ -180,10 +179,9 @@ const Footer = () => {
                   >
                     <Link
                       to={link.path}
-                      className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group"
+                      className="block text-gray-400 hover:text-white transition-colors duration-300"
                     >
-                      <span className="group-hover:text-red-400 transition-colors duration-300">{link.icon}</span>
-                      <span className="group-hover:text-white">{link.label}</span>
+                      {link.label}
                     </Link>
                   </motion.div>
                 ))}

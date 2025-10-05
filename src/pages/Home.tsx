@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Download, ArrowRight, Code, Sparkles, Star, ExternalLink, Eye } from 'lucide-react';
-import TestimonialSlider from '../components/TestimonialSlider';
+import TestimonialSliderEnhanced from '../components/TestimonialSliderEnhanced';
 
 const Home = () => {
   const [displayText, setDisplayText] = useState('');
@@ -139,26 +139,37 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden">
-        {/* Background Animations */}
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div 
-            animate={{ 
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-              scale: [1, 1.2, 1]
+      <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1920)',
             }}
-            transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/90 to-primary-100/80 dark:from-gray-900/95 dark:via-gray-800/90 dark:to-gray-900/90"></div>
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <motion.div
+            animate={{
+              x: [0, 50, 0],
+              y: [0, -50, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 left-20 w-72 h-72 bg-primary-200 dark:bg-primary-900 rounded-full mix-blend-multiply filter blur-xl opacity-20"
           ></motion.div>
-          <motion.div 
-            animate={{ 
-              x: [0, -100, 0],
-              y: [0, 100, 0],
-              scale: [1, 0.8, 1]
+          <motion.div
+            animate={{
+              x: [0, -50, 0],
+              y: [0, 50, 0],
+              scale: [1, 0.9, 1]
             }}
-            transition={{ duration: 25, repeat: Infinity }}
-            className="absolute top-20 right-20 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 right-20 w-72 h-72 bg-red-200 dark:bg-red-900 rounded-full mix-blend-multiply filter blur-xl opacity-20"
           ></motion.div>
         </div>
 
@@ -178,45 +189,46 @@ const Home = () => {
                   transition={{ duration: 0.8, delay: 0.5 }}
                   className="mb-6"
                 >
-                  <h2 className="text-2xl md:text-3xl text-blue-600 font-semibold mb-4">
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-xl md:text-2xl text-primary dark:text-primary-400 font-semibold mb-4"
+                  >
                     Welcome to World of{' '}
-                    <motion.span
-                      animate={{ 
-                        color: ['#2563eb', '#dc2626', '#2563eb'],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                      className="font-bold"
-                    >
+                    <span className="font-bold text-primary-600 dark:text-primary-300">
                       Jashim Uddin
-                    </motion.span>
-                  </h2>
-                  
-                  <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    </span>
+                  </motion.h2>
+
+                  <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+                  >
                     I'm{' '}
-                    <motion.span
-                      animate={{ 
-                        color: ['#2563eb', '#dc2626', '#2563eb'],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="inline-block"
-                    >
+                    <span className="text-primary dark:text-primary-400">
                       Jashim Uddin
-                    </motion.span>
+                    </span>
                     {' '}a{' '}
                     <motion.span
-                      animate={{ 
-                        y: [0, -10, 0],
-                        color: ['#dc2626', '#2563eb', '#dc2626']
+                      animate={{
+                        opacity: [1, 0.7, 1]
                       }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                      className="inline-block"
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      className="inline-block text-red-600 dark:text-red-400"
                     >
                       {displayText}
                     </motion.span>
-                    <span className="animate-pulse text-red-600">|</span>
-                  </h1>
+                    <motion.span
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                      className="text-primary"
+                    >
+                      |
+                    </motion.span>
+                  </motion.h1>
                   
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -562,7 +574,7 @@ const Home = () => {
           </motion.div>
 
           <div className="max-w-7xl mx-auto px-4 lg:px-12">
-            <TestimonialSlider />
+            <TestimonialSliderEnhanced />
           </div>
         </div>
       </section>
