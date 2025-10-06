@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Banner from '../components/Banner';
-import { User, MapPin, GraduationCap, Coffee, Heart, Zap, Award, Code, Briefcase } from 'lucide-react';
+import { User, MapPin, GraduationCap, Coffee, Heart, Zap, Award, Code, Briefcase, CheckCircle, Clock, Users, Target, TrendingUp, Star } from 'lucide-react';
+import SkillProgressBar from '../components/SkillProgressBar';
+import CounterAnimation from '../components/CounterAnimation';
 
 const About = () => {
   const highlights = [
@@ -302,6 +304,239 @@ const About = () => {
                       </div>
                     ))}
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Progress Bar Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              >
+                Technical <span className="text-primary">Skills</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+              >
+                My proficiency in cutting-edge Shopify development tools and platforms
+              </motion.p>
+            </motion.div>
+
+            {/* Skills Progress Bars */}
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-2xl p-8 md:p-12">
+              <SkillProgressBar
+                skills={[
+                  {
+                    name: 'Shopify Customizations',
+                    percentage: 96,
+                    icon: 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
+                    color: 'bg-gradient-to-r from-green-500 to-green-600',
+                  },
+                  {
+                    name: 'Shopify Liquid Development',
+                    percentage: 90,
+                    icon: 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
+                    color: 'bg-gradient-to-r from-primary to-primary-700',
+                  },
+                  {
+                    name: 'Shopify Landing Page (Pagefly)',
+                    percentage: 95,
+                    icon: 'https://d3t84cny91r9gt.cloudfront.net/assets/home/favicon-c0b7e19fff8a2bb5faeac9dae59bc266f3c04dcfa29d05e6f0e3a07d1bb02c0e.png',
+                    color: 'bg-gradient-to-r from-purple-500 to-purple-600',
+                  },
+                  {
+                    name: 'Gempages',
+                    percentage: 95,
+                    icon: 'https://gempages.net/wp-content/uploads/2023/08/cropped-gem-fav-icon-32x32.png',
+                    color: 'bg-gradient-to-r from-pink-500 to-red-500',
+                  },
+                  {
+                    name: 'Replo',
+                    percentage: 94,
+                    icon: 'https://cdn.prod.website-files.com/5ff5db9c9b1e7bc42797c05b/62d6e6a5f6b2c50e8b84256f_Replo%20Icon.png',
+                    color: 'bg-gradient-to-r from-orange-500 to-red-600',
+                  },
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Me Section */}
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              >
+                Why <span className="text-primary">Choose Me</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+              >
+                What sets me apart and makes me the right choice for your project
+              </motion.p>
+            </motion.div>
+
+            {/* Reasons Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <CheckCircle className="w-8 h-8" />,
+                  title: 'Quality Guaranteed',
+                  description: 'Pixel-perfect designs with clean, maintainable code that follows industry best practices.',
+                },
+                {
+                  icon: <Clock className="w-8 h-8" />,
+                  title: 'On-Time Delivery',
+                  description: 'Committed to meeting deadlines without compromising on quality or attention to detail.',
+                },
+                {
+                  icon: <Users className="w-8 h-8" />,
+                  title: 'Client-Focused',
+                  description: 'Your vision is my priority. I work closely with you to exceed expectations.',
+                },
+                {
+                  icon: <Target className="w-8 h-8" />,
+                  title: 'Results-Driven',
+                  description: 'Focused on creating solutions that drive conversions and achieve business goals.',
+                },
+                {
+                  icon: <TrendingUp className="w-8 h-8" />,
+                  title: 'Continuous Growth',
+                  description: 'Always learning new technologies and techniques to deliver cutting-edge solutions.',
+                },
+                {
+                  icon: <Star className="w-8 h-8" />,
+                  title: '100% Satisfaction',
+                  description: 'Dedicated to ensuring every client is completely satisfied with the final result.',
+                },
+              ].map((reason, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="bg-primary/10 dark:bg-primary/20 w-16 h-16 rounded-lg flex items-center justify-center mb-4 text-primary">
+                    {reason.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                    {reason.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {reason.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* My Journey in Numbers Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-primary-900 to-gray-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold mb-4"
+              >
+                My Journey in <span className="text-yellow-400">Numbers</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-xl text-gray-300 max-w-2xl mx-auto"
+              >
+                Achievements that speak for themselves
+              </motion.p>
+            </motion.div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { end: 60, suffix: '+', label: 'Projects Completed', icon: <Briefcase className="w-8 h-8" /> },
+                { end: 4, suffix: '+', label: 'Years Experience', icon: <Award className="w-8 h-8" /> },
+                { end: 30, suffix: '+', label: 'Happy Clients', icon: <Users className="w-8 h-8" /> },
+                { end: 100, suffix: '%', label: 'Client Satisfaction', icon: <Star className="w-8 h-8" /> },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-primary/50 transition-all duration-300"
+                >
+                  <div className="flex justify-center mb-4 text-yellow-400">
+                    {stat.icon}
+                  </div>
+                  <div className="text-5xl md:text-6xl font-bold mb-2 text-white">
+                    <CounterAnimation end={stat.end} suffix={stat.suffix} duration={2.5} />
+                  </div>
+                  <div className="text-gray-300 text-lg font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </div>

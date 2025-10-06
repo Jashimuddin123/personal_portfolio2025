@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, ArrowUp, Phone, MessageCircle, Facebook, Instagram, Twitter, Home, User, Briefcase, Eye, Star, Quote, Code, Globe, ShoppingCart, Palette, Zap, Smartphone } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp, Phone, MessageCircle, Facebook, Instagram, Twitter, Home, User, Briefcase, Eye, Star, Quote, Code, Globe, ShoppingCart, Palette, Zap, Smartphone, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -149,13 +149,19 @@ const Footer = () => {
                   <motion.div
                     key={index}
                     whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+                    className="group"
                   >
                     <Link
                       to={link.path}
-                      className="block text-gray-400 hover:text-white transition-colors duration-300"
+                      className="flex items-center text-gray-400 hover:text-white transition-all duration-300"
                     >
-                      {link.label}
+                      <motion.span
+                        className="opacity-0 group-hover:opacity-100 mr-2 transition-opacity duration-300"
+                      >
+                        <ArrowRight className="w-4 h-4 text-primary" />
+                      </motion.span>
+                      <span>{link.label}</span>
                     </Link>
                   </motion.div>
                 ))}
@@ -175,13 +181,19 @@ const Footer = () => {
                   <motion.div
                     key={index}
                     whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+                    className="group"
                   >
                     <Link
                       to={link.path}
-                      className="block text-gray-400 hover:text-white transition-colors duration-300"
+                      className="flex items-center text-gray-400 hover:text-white transition-all duration-300"
                     >
-                      {link.label}
+                      <motion.span
+                        className="opacity-0 group-hover:opacity-100 mr-2 transition-opacity duration-300"
+                      >
+                        <ArrowRight className="w-4 h-4 text-primary" />
+                      </motion.span>
+                      <span>{link.label}</span>
                     </Link>
                   </motion.div>
                 ))}

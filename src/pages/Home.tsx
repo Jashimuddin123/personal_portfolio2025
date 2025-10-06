@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Download, ArrowRight, Code, Sparkles, Star, ExternalLink, Eye } from 'lucide-react';
 import TestimonialSliderEnhanced from '../components/TestimonialSliderEnhanced';
+import SkillProgressBar from '../components/SkillProgressBar';
 
 const Home = () => {
   const [displayText, setDisplayText] = useState('');
@@ -575,6 +576,79 @@ const Home = () => {
 
           <div className="max-w-7xl mx-auto px-4 lg:px-12">
             <TestimonialSliderEnhanced />
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Progress Bar Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              >
+                My <span className="text-primary">Expertise</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+              >
+                Specialized skills in Shopify development and modern web technologies
+              </motion.p>
+            </motion.div>
+
+            {/* Skills Progress Bars */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 md:p-12">
+              <SkillProgressBar
+                skills={[
+                  {
+                    name: 'Shopify Customizations',
+                    percentage: 96,
+                    icon: 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
+                    color: 'bg-gradient-to-r from-green-500 to-green-600',
+                  },
+                  {
+                    name: 'Shopify Liquid Development',
+                    percentage: 90,
+                    icon: 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg',
+                    color: 'bg-gradient-to-r from-primary to-primary-700',
+                  },
+                  {
+                    name: 'Shopify Landing Page (Pagefly)',
+                    percentage: 95,
+                    icon: 'https://d3t84cny91r9gt.cloudfront.net/assets/home/favicon-c0b7e19fff8a2bb5faeac9dae59bc266f3c04dcfa29d05e6f0e3a07d1bb02c0e.png',
+                    color: 'bg-gradient-to-r from-purple-500 to-purple-600',
+                  },
+                  {
+                    name: 'Gempages',
+                    percentage: 95,
+                    icon: 'https://gempages.net/wp-content/uploads/2023/08/cropped-gem-fav-icon-32x32.png',
+                    color: 'bg-gradient-to-r from-pink-500 to-red-500',
+                  },
+                  {
+                    name: 'Replo',
+                    percentage: 94,
+                    icon: 'https://cdn.prod.website-files.com/5ff5db9c9b1e7bc42797c05b/62d6e6a5f6b2c50e8b84256f_Replo%20Icon.png',
+                    color: 'bg-gradient-to-r from-orange-500 to-red-600',
+                  },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>
